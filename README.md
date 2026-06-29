@@ -47,6 +47,7 @@ The following SQL concepts are used in this project:
 ## 📂 Files Included
 
 1. introduction to RDBMS
+
 2.introduction to SQL
 
 ---
@@ -87,7 +88,9 @@ To demonstrate SQL skills including data retrieval, joins, filtering, aggregatio
 ## 👩‍💻 Author
 
 Name: Aditi Patel
+
 Assignment: Wipro Database solution Expert Training under wipro talentnext program
+
 Database: Oracle SQL
 
 ---
