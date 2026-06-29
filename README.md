@@ -46,8 +46,8 @@ The following SQL concepts are used in this project:
 
 ## 📂 Files Included
 
-* introduction to RDBMS
-*introduction to SQL
+1. introduction to RDBMS
+2.introduction to SQL
 
 ---
 
