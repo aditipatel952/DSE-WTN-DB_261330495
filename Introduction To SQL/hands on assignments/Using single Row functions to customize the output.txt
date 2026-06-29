@@ -1,0 +1,83 @@
+1.SELECT SYSDATE AS "Current Date"
+FROM DUAL;
+
+2.SELECT empno,ename, sal,ROUND(sal + (sal * 15.5 / 100)) AS "New Salary"
+FROM emp;
+
+3.SELECT empno,
+       ename,
+       sal,
+       ROUND(sal + (sal * 15.5 / 100)) AS "New Salary",
+       ROUND((sal + (sal * 15.5 / 100)) - sal) AS "Increase"
+FROM emp;
+
+4.SELECT INITCAP(ename) AS "Employee Name",
+       LENGTH(ename) AS "Name Length"
+FROM emp
+WHERE UPPER(ename) LIKE 'J%'
+   OR UPPER(ename) LIKE 'A%'
+   OR UPPER(ename) LIKE 'M%'
+ORDER BY ename;
+
+5.SELECT INITCAP(ename) AS "Employee Name",
+       LENGTH(ename) AS "Name Length"
+FROM emp
+WHERE UPPER(ename) LIKE UPPER('&LETTER') || '%'
+ORDER BY ename;
+
+6.SELECT ename,
+       CEIL(MONTHS_BETWEEN(SYSDATE, hiredate)) AS "MONTHS_WORKED"
+FROM emp
+ORDER BY "MONTHS_WORKED";
+
+
+7.SELECT ename || ' earns ' || sal || ' monthly but wants ' || (sal * 3) AS "Dream Salaries"
+FROM emp;
+
+8.SELECT last_name,
+       LPAD(salary, 15, '$') AS "SALARY"
+FROM employees;
+
+9.SELECT last_name,
+       hire_date,
+       TO_CHAR(
+           NEXT_DAY(ADD_MONTHS(hire_date, 6), 'MONDAY'),
+           'Day, "the" DDSPTH "of" Month, YYYY'
+       ) AS "REVIEW"
+FROM employees;
+
+10.SELECT last_name,
+       hire_date,
+       TO_CHAR(hire_date, 'DAY') AS "DAY"
+FROM employees
+ORDER BY MOD(TO_CHAR(hire_date, 'D') + 5, 7);
+
+11.SELECT last_name,
+       NVL(TO_CHAR(commission_pct), 'No Commission') AS "COMM"
+FROM employees;
+
+12.SELECT SUBSTR(last_name, 1, 8) || ' ' ||
+       RPAD('*', TRUNC(salary/1000), '*') AS "EMPLOYEES_AND_THEIR_SALARIES"
+FROM employees
+ORDER BY salary DESC;
+
+13.SELECT ename,
+       job,
+       DECODE(job,
+              'PRESIDENT', 'A',
+              'MANAGER',   'B',
+              'SALESMAN',  'C',
+              'CLERK',     'D',
+              'NO GRADE') AS GRADE
+FROM emp;
+
+14.SELECT ename,
+       job,
+       CASE job
+           WHEN 'PRESIDENT' THEN 'A'
+           WHEN 'MANAGER'   THEN 'B'
+           WHEN 'SALESMAN'  THEN 'C'
+           WHEN 'CLERK'     THEN 'D'
+           ELSE 'NO GRADE'
+       END AS GRADE
+FROM emp;

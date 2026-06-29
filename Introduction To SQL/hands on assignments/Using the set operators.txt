@@ -1,0 +1,39 @@
+1.SELECT job_id,
+       SUM(CASE WHEN department_id = 10 THEN salary ELSE 0 END) AS "Dept 10",
+       SUM(CASE WHEN department_id = 20 THEN salary ELSE 0 END) AS "Dept 20",
+       SUM(CASE WHEN department_id = 30 THEN salary ELSE 0 END) AS "Dept 30",
+       SUM(salary) AS "Total Salary"
+FROM employees
+WHERE department_id IN (10, 20, 30)
+GROUP BY job_id;
+
+2.SELECT department_id, SUM(salary)
+FROM employees
+GROUP BY department_id
+
+UNION ALL
+
+SELECT job_id, SUM(salary)
+FROM employees
+GROUP BY job_id
+
+UNION ALL
+
+SELECT NULL, SUM(salary)
+FROM employees;
+
+3.SELECT job_id, department_id
+FROM employees
+WHERE department_id = 20
+
+UNION ALL
+
+SELECT job_id, department_id
+FROM employees
+WHERE department_id = 10
+
+UNION ALL
+
+SELECT job_id, department_id
+FROM employees
+WHERE department_id = 30;

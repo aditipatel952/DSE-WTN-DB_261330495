@@ -1,0 +1,75 @@
+1. SELECT ename, sal, comm
+FROM emp
+WHERE comm IS NOT NULL
+ORDER BY 2 DESC, 3 DESC;
+
+2.SELECT DISTINCT job
+FROM emp;
+
+3.SELECT empno AS "Emp #",
+       ename AS "Employee",
+       job AS "Job",
+       hiredate AS "Hire Date"
+FROM emp;
+
+4.SELECT ename || ', ' || job AS "Employee and Title"
+FROM emp;
+
+5.SELECT ename || ',' || job || ',' || hiredate || ',' || mgr AS "THE_OUTPUT"
+FROM emp;
+
+6.SELECT ename, job, hiredate
+FROM emp
+WHERE ename IN ('SCOTT', 'TURNER')
+ORDER BY hiredate ASC;
+
+7.SELECT ename, deptno
+FROM emp
+WHERE deptno IN (20, 30)
+ORDER BY ename ASC;
+
+8.SELECT ename AS "Employee",
+       sal AS "Monthly Salary"
+FROM emp
+WHERE sal BETWEEN 2000 AND 3000
+  AND deptno IN (20, 30)
+ORDER BY ename ASC;
+
+9.SELECT ename, hiredate
+FROM emp
+WHERE hiredate >= '01-JAN-81'
+  AND hiredate <= '31-DEC-81';
+
+10.SELECT ename, sal
+FROM emp
+WHERE sal > &salary;
+
+11.SELECT ename, job
+FROM emp
+WHERE mgr IS NULL;
+
+12.SELECT empno, ename, sal, deptno
+FROM emp
+WHERE mgr = &Manager_ID
+ORDER BY &Sort_Column;
+
+13.SELECT employee_id AS EMPNO,
+       last_name   AS ENAME,
+       salary      AS SALARY,
+       department_id AS DEPARTMENT
+FROM employees
+WHERE manager_id = &MGR
+ORDER BY &SORT_COLUMN;
+
+14.SELECT last_name
+FROM employees
+WHERE last_name LIKE '__A%';
+
+15.SELECT last_name
+FROM employees
+WHERE last_name LIKE '__A%';
+
+16.SELECT ename, sal, job
+FROM emp
+WHERE job = 'CLERK'
+AND sal IN (800, 950, 1300);
